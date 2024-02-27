@@ -10,6 +10,24 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
+export async function fetchAllInvoice() {
+  try {
+    const invoiceCountPromise = await sql`SELECT COUNT(*) FROM invoices`;
+    return invoiceCountPromise
+  } catch (error) {
+    
+  }
+}
+
+export async function fetchAllCustomers() {
+  try {
+    const customerCountPromise = await sql`SELECT COUNT(*) FROM customers`;
+   return customerCountPromise
+  } catch (error) {
+    
+  }
+}
+
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
